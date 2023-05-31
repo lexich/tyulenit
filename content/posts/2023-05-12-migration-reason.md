@@ -2,11 +2,12 @@
 title: "Migration Reason"
 date: 2023-05-12T12:49:23+04:00
 draft: false
+tags: [architecture]
 ---
 
 В продолжение вчерашней темы, про миграцию на `mobx`  резонно возникает вопрос, а зачем вообще мигрировать на что-то, если есть `redux`, `context api`, `useReducer` и всякие подобные решения на которых строится сейчас `React` разработка.
 
-```tsx
+```ts
 export const AppContext = createContext({});
 
 export const AppContextProvider: FC = ({ children }) => {
@@ -41,7 +42,7 @@ const Component: FC = () => {
 
 Давате перепишем все на mobx и получаем один ререндер. Потому что мы подписываемся только на изменение `profile`.
 
-```tsx
+```ts
 class AppModel {
   user: IUser | undefined = undefined;
   profile: IProfile | undefined = undefined;

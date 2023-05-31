@@ -2,6 +2,7 @@
 title: "CreateAtom"
 date: 2023-05-18T12:52:56+04:00
 draft: false
+tags: [mobx]
 ---
 
 В библиотеке `mobx`  есть очень интересный примитив атом, который создается через `createAtom`. С его помощью можно создавать очень интересные конструкции и вообще построить чуть ли не всю архитектуру приложения. Что нам говорит документация:
@@ -37,7 +38,7 @@ export function createAtomSubscriber(name: string, subscribe: () => () => void):
 
 Теперь мы можем заворачивать в `createAtomSubscriber` любые подписки на любые источники данных. Например, у представим компонент, специально немного усложненный, для большей наглядности.
 
-```tsx
+```ts
 const Component: FC = () => {
 	const [[prevData, currentData], setData] = useState(['', '']);
 
@@ -57,7 +58,7 @@ const Component: FC = () => {
 
 Давайте теперь перепишем компонент, чтобы вообще избегать подобных ситуаций и воспользуемся `createAtomSubscriber`
 
-```tsx
+```ts
 class Model {
 	constructor() {
 		makeObservable(this, {

@@ -2,6 +2,7 @@
 title: "ContextApiMigration"
 date: 2023-05-11T12:47:31+04:00
 draft: false
+tags: [architecture]
 ---
 
 В жизни можно бесконечно делать 3 вещи, смотреть как горит огонь, как течет вода и как я пытаюсь агитировать переписать react приложение с Context API на что-то более функциональное, на чем можно построить нормальную архитектуру приложения. Последнее время я все чаще выбираю mobx, поэтому поговорим сегодня про него.
@@ -10,7 +11,7 @@ draft: false
 
 Предположим, у нас есть компонент, который обращается к глобальному стейту приложения.
 
-```tsx
+```ts
 import { FC, useContext, createContext } from 'react';
 
 const AppContext = createContext({ counter: 0, onIncrement: () => {}});
@@ -31,7 +32,7 @@ const Counter: FC<{}> = () => {
 
 Опишем модель, которая будет заменять функциональность глобального стейта (необязательно всю, слона лучше есть по-частям).
 
-```tsx
+```ts
 import { FC, createContext } from 'react';
 import { _isComputingDerivation, make, observable, action } from 'mobx';
 
@@ -68,7 +69,7 @@ export const useAppModel = () => {
 
 Теперь мы можем переписать наш компонент, удаляя ненужное данные из глобального стейта.
 
-```tsx
+```ts
 import { observer } from 'mobx-react-lite';
 const Component: FC<{}> = observer(() => {
    const { counter, onIncrement } = useAppModel();
@@ -80,7 +81,7 @@ const Component: FC<{}> = observer(() => {
 
 И последним шагом когда компонент полностью очиститься от влияния глобального контекста просто переносим передачу в модели в props компонента.
 
-```tsx
+```ts
 import { observer } from 'mobx-react-lite';
 const Component: FC<{ model: AppModel }> = observer(({ counter, onIncrement }) => {
    return <button onClick={onIncrement}>Click {counter}</div>

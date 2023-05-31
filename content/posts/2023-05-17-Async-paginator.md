@@ -2,6 +2,7 @@
 title: "Async Paginator"
 date: 2023-05-17T12:51:37+04:00
 draft: false
+tags: [library]
 ---
 
 Сегодня хочется немного рассказать про собственную наработку https://github.com/lexich/async-paginator
