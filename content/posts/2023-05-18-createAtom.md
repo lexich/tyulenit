@@ -1,5 +1,5 @@
 ---
-title: "CreateAtom"
+title: Работа с atom в mobx
 date: 2023-05-18T12:52:56+04:00
 draft: false
 tags: [mobx]

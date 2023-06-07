@@ -1,5 +1,5 @@
 ---
-title: 'Pushsortable'
+title: Вставка отсортированных данных в JS
 date: 2023-05-10T12:44:41+04:00
 draft: false
 tags: [algoritms]

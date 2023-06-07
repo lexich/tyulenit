@@ -1,5 +1,5 @@
 ---
-title: "Migration Reason"
+title: Миграция в React c Context API в Mobx часть 2
 date: 2023-05-12T12:49:23+04:00
 draft: false
 tags: [architecture]

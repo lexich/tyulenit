@@ -1,5 +1,5 @@
 ---
-title: "ContextApiMigration"
+title: Миграция в React c Context API в Mobx часть 1
 date: 2023-05-11T12:47:31+04:00
 draft: false
 tags: [architecture]

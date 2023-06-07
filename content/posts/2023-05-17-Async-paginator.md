@@ -1,5 +1,5 @@
 ---
-title: "Async Paginator"
+title: Асинхронная пагинация
 date: 2023-05-17T12:51:37+04:00
 draft: false
 tags: [library]

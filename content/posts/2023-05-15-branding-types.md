@@ -1,5 +1,5 @@
 ---
-title: "Branding Types"
+title: Брендированные типы в typescript
 date: 2023-05-15T12:50:29+04:00
 draft: false
 tags: [typescript]

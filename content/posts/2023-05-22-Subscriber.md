@@ -1,5 +1,5 @@
 ---
-title: "Subscriber"
+title: Паттерн подписчик в mobx
 date: 2023-05-22T12:53:38+04:00
 draft: false
 tags: [mobx]
