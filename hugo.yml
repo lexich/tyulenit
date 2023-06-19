@@ -58,7 +58,7 @@ params:
 
   label:
     text: "ТюленITь"
-    icon: /apple-touch-icon.png
+    icon: apple-touch-icon.png
     iconHeight: 35
 
   # profile-mode
