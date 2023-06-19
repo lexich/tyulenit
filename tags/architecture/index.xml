@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>architecture on ТюленITь</title>
+    <link>https://lexich.github.io/tyulenit/tags/architecture/</link>
+    <description>Recent content in architecture on ТюленITь</description>
+    <image>
+      <title>ТюленITь</title>
+      <url>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Mon, 19 Jun 2023 11:06:32 +0400</lastBuildDate><atom:link href="https://lexich.github.io/tyulenit/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Написание адаптера для Fetch API</title>
+      <link>https://lexich.github.io/tyulenit/posts/2023-06-19-fetch/</link>
+      <pubDate>Mon, 19 Jun 2023 11:06:32 +0400</pubDate>
+      
+      <guid>https://lexich.github.io/tyulenit/posts/2023-06-19-fetch/</guid>
+      <description>Кажется, что нет такого проекта, в котором не нужно делать запросы к серверу. И всегда хорошей идеей написать отдельную абстракцию для описания подобной коммуникации. Это добавляет коду не только читаемости и переиспользуемости, но и дает возможность быстро и эффективно написать тест для подобной функциональности.
+class NetworkService { constructor(private readonly fetch: typeof fetch) {} getUser: (): Promise&amp;lt;IUser&amp;gt; =&amp;gt; this.fetch(&amp;#39;/api/user&amp;#39;).then(d =&amp;gt; d.json()) } function getUsername(api: Pick&amp;lt;NetworkService, &amp;#39;getUser&amp;#39;&amp;gt;) { return api.getUser().then(user =&amp;gt; user.name); } test(&amp;#39;getUsername&amp;#39;, async () =&amp;gt; { const name = await getUsername({ getUser: () =&amp;gt; Promise.</description>
+    </item>
+    
+    <item>
+      <title>DI в typescript в стиле Java</title>
+      <link>https://lexich.github.io/tyulenit/posts/2023-05-31-injector/</link>
+      <pubDate>Wed, 31 May 2023 12:55:03 +0400</pubDate>
+      
+      <guid>https://lexich.github.io/tyulenit/posts/2023-05-31-injector/</guid>
+      <description>На работе в проекте столкнулись с достаточно распространенной архитектурной проблемой. Есть набор сервисов, зависящих друг от друга. Первоначально взаимосвязи между сервисами описывались c помощью DI через конструктор.
+interface Options { service1: Service1; service2: Service2; serviceN: ServiceN; } class ServiceNew { constructor(private options: Options) {} } В большинстве случаев такой подход является достаточно эффективным. Однако порой возникают ситуации, например, когда 2 сервиса зависят друг от друга и приходится инжектить зависимость через функции-геттеры.</description>
+    </item>
+    
+    <item>
+      <title>Миграция в React c Context API в Mobx часть 2</title>
+      <link>https://lexich.github.io/tyulenit/posts/2023-05-12-migration-reason/</link>
+      <pubDate>Fri, 12 May 2023 12:49:23 +0400</pubDate>
+      
+      <guid>https://lexich.github.io/tyulenit/posts/2023-05-12-migration-reason/</guid>
+      <description>В продолжение вчерашней темы, про миграцию на mobx резонно возникает вопрос, а зачем вообще мигрировать на что-то, если есть redux, context api, useReducer и всякие подобные решения на которых строится сейчас React разработка.
+export const AppContext = createContext({}); export const AppContextProvider: FC = ({ children }) =&amp;gt; { const [user, setUser] = useState&amp;lt;IUser&amp;gt;(undefined); const [profile, setProfile] = useState&amp;lt;IProfile&amp;gt;(undefined); const setUserId = (id: string) =&amp;gt; loadUser(id).then(setUser); useEffect(() =&amp;gt; { if (user) { loadProfile(user).</description>
+    </item>
+    
+    <item>
+      <title>Миграция в React c Context API в Mobx часть 1</title>
+      <link>https://lexich.github.io/tyulenit/posts/2023-05-11-contextapimigration/</link>
+      <pubDate>Thu, 11 May 2023 12:47:31 +0400</pubDate>
+      
+      <guid>https://lexich.github.io/tyulenit/posts/2023-05-11-contextapimigration/</guid>
+      <description>В жизни можно бесконечно делать 3 вещи, смотреть как горит огонь, как течет вода и как я пытаюсь агитировать переписать react приложение с Context API на что-то более функциональное, на чем можно построить нормальную архитектуру приложения. Последнее время я все чаще выбираю mobx, поэтому поговорим сегодня про него.
+Так что же делать, если приложение уже написано, а с чего-то начать надо?
+Предположим, у нас есть компонент, который обращается к глобальному стейту приложения.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>library on ТюленITь</title>
+    <link>https://lexich.github.io/tyulenit/tags/library/</link>
+    <description>Recent content in library on ТюленITь</description>
+    <image>
+      <title>ТюленITь</title>
+      <url>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Wed, 17 May 2023 12:51:37 +0400</lastBuildDate><atom:link href="https://lexich.github.io/tyulenit/tags/library/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Асинхронная пагинация</title>
+      <link>https://lexich.github.io/tyulenit/posts/2023-05-17-async-paginator/</link>
+      <pubDate>Wed, 17 May 2023 12:51:37 +0400</pubDate>
+      
+      <guid>https://lexich.github.io/tyulenit/posts/2023-05-17-async-paginator/</guid>
+      <description>Сегодня хочется немного рассказать про собственную наработку https://github.com/lexich/async-paginator
+Это небольшая библиотека, которая позволяет обрабатывать коллекции данных, используя асинхронные итераторы. При этом доступна гибкая настройка количества одновременного запуска задач (можно запустить сразу все или разбить на группы).
+import { paginatorUnordered, paginator } from &amp;#39;async-paginator&amp;#39;; const sleep = (delay: number) =&amp;gt; new Promise&amp;lt;void&amp;gt;((resolve) =&amp;gt; setTimeout(resolve, delay)); // for ordering use `paginator` instead of paginatorUnordered const paginate = paginatorUnordered([1, 2, 3, 4, 5, 6, 7, 8], async (num) =&amp;gt; { if (num % 2 === 0) { await sleep(10); // timeout 10ms } return num * 10; }, { offset: 1, chunks: 2, mode: &amp;#39;chunks&amp;#39;, }); const result: number[] = []; for await (const item of paginate) { if (!</description>
+    </item>
+    
+  </channel>
+</rss>
