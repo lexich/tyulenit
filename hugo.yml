@@ -49,11 +49,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "favicon.ico"
+    favicon16x16: "favicon-16x16.png"
+    favicon32x32: "favicon-32x32.png"
+    apple_touch_icon: "apple-touch-icon.png"
+    safari_pinned_tab: "apple-touch-icon.png"
 
   label:
     text: "Home"
@@ -65,7 +65,7 @@ params:
     enabled: false # needs to be explicitly set
     title: 'ТюленITь'
     subtitle: "Нить рассуждений о технологиях, разработке программного обеспечения и о тюленчиках"
-    imageUrl: "<img location>"
+    imageUrl: "seal.jpg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
@@ -102,7 +102,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/lexich/tyulenit/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
