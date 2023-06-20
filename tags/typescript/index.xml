@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>typescript on ТюленITь</title>
-    <link>https://lexich.github.io/tyulenit/tags/typescript/</link>
+    <link>https://tyulenit.com/tags/typescript/</link>
     <description>Recent content in typescript on ТюленITь</description>
     <image>
       <title>ТюленITь</title>
-      <url>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://tyulenit.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://tyulenit.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
-    <lastBuildDate>Sun, 04 Jun 2023 23:04:41 +0400</lastBuildDate><atom:link href="https://lexich.github.io/tyulenit/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jun 2023 23:04:41 +0400</lastBuildDate><atom:link href="https://tyulenit.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Создание параметризированных строк</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-06-05-template-config/</link>
+      <link>https://tyulenit.com/posts/2023-06-05-template-config/</link>
       <pubDate>Sun, 04 Jun 2023 23:04:41 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-06-05-template-config/</guid>
+      <guid>https://tyulenit.com/posts/2023-06-05-template-config/</guid>
       <description>Задача, которая встречается почти в каждом проекте - это создание параметризированных строк. Чаще всего подобные конструкции можно встретить роутерах, но применение можно найти во многих других местах. Обычно это выглядит примерно так:
 const postURL = template(&amp;#39;{host}/posts/{id}&amp;#39;); const url = postURL({ host: &amp;#39;http://example.com&amp;#39;, id: 1 }); // url === &amp;#39;http://example.com/posts/id&amp;#39; Реализовать подобное API не представляет большой сложности. Разбиваем строку с помощью регулярного выражения, подставляя реальные значения вместо переменных.
 // создаем regexp для разбиения const buildSeparatorVarRx = (start: string, end: string) =&amp;gt; new RegExp(`${start}([^${start + end}]+)${end}`); // в качестве разделителя используем скобки const rx = buildSeparatorVarRx(&amp;#39;\\{&amp;#39;, &amp;#39;\\}&amp;#39;); export function template&amp;lt;T extends string&amp;gt;(tmpl: T) { const array = tmpl.</description>
@@ -25,10 +25,10 @@ const postURL = template(&amp;#39;{host}/posts/{id}&amp;#39;); const url = postU
     
     <item>
       <title>Брендированные типы в typescript</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-15-branding-types/</link>
+      <link>https://tyulenit.com/posts/2023-05-15-branding-types/</link>
       <pubDate>Mon, 15 May 2023 12:50:29 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-15-branding-types/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-15-branding-types/</guid>
       <description>Cегодня хочется поговорить о брендированных типах в typescript. Для начала, представим, что у нас есть функция для конвертации валют.
 const usdToEur = (usdAmount: number, rate = 0.92) =&amp;gt; usdAmount * rate; usdToEur(100); // === 92 eur Давайте немного улучшим ее, введя типы USD и EUR, чтобы не только название функции и коментарии к ней подсказывали нам о ее предназначении.
 type USD = number; type EUR = number; const usdToEur = (usdAmount: USD, rate = 0.</description>

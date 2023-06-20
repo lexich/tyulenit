@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>algoritms on ТюленITь</title>
-    <link>https://lexich.github.io/tyulenit/tags/algoritms/</link>
+    <link>https://tyulenit.com/tags/algoritms/</link>
     <description>Recent content in algoritms on ТюленITь</description>
     <image>
       <title>ТюленITь</title>
-      <url>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://tyulenit.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://tyulenit.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
-    <lastBuildDate>Wed, 10 May 2023 12:44:41 +0400</lastBuildDate><atom:link href="https://lexich.github.io/tyulenit/tags/algoritms/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 May 2023 12:44:41 +0400</lastBuildDate><atom:link href="https://tyulenit.com/tags/algoritms/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Вставка отсортированных данных в JS</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-10-pushsortable/</link>
+      <link>https://tyulenit.com/posts/2023-05-10-pushsortable/</link>
       <pubDate>Wed, 10 May 2023 12:44:41 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-10-pushsortable/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-10-pushsortable/</guid>
       <description>Когда я лет 10 назад писал на C++, то помню, как использовал структуру std:set чтобы сразу упорядоченно вставлять данные в массив. В JavaScript похожий Set завезли, но к сожалению компаратор в него не вставить. Придется засучить рукава и писать все самому.
 export function pushSortable&amp;lt;T&amp;gt;( list: T[], item: T, comparator: (a: T, b: T) =&amp;gt; -1 | 0 | 1 ) { // находим позицию первого элемента который больше вставляемого const index = list.</description>
     </item>

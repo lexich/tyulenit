@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ТюленITь</title>
-    <link>https://lexich.github.io/tyulenit/</link>
+    <link>https://tyulenit.com/</link>
     <description>Recent content on ТюленITь</description>
     <image>
       <title>ТюленITь</title>
-      <url>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://lexich.github.io/tyulenit/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://tyulenit.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://tyulenit.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
-    <lastBuildDate>Mon, 19 Jun 2023 11:06:32 +0400</lastBuildDate><atom:link href="https://lexich.github.io/tyulenit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 11:06:32 +0400</lastBuildDate><atom:link href="https://tyulenit.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Написание адаптера для Fetch API</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-06-19-fetch/</link>
+      <link>https://tyulenit.com/posts/2023-06-19-fetch/</link>
       <pubDate>Mon, 19 Jun 2023 11:06:32 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-06-19-fetch/</guid>
+      <guid>https://tyulenit.com/posts/2023-06-19-fetch/</guid>
       <description>Кажется, что нет такого проекта, в котором не нужно делать запросы к серверу. И всегда хорошей идеей написать отдельную абстракцию для описания подобной коммуникации. Это добавляет коду не только читаемости и переиспользуемости, но и дает возможность быстро и эффективно написать тест для подобной функциональности.
 class NetworkService { constructor(private readonly fetch: typeof fetch) {} getUser: (): Promise&amp;lt;IUser&amp;gt; =&amp;gt; this.fetch(&amp;#39;/api/user&amp;#39;).then(d =&amp;gt; d.json()) } function getUsername(api: Pick&amp;lt;NetworkService, &amp;#39;getUser&amp;#39;&amp;gt;) { return api.getUser().then(user =&amp;gt; user.name); } test(&amp;#39;getUsername&amp;#39;, async () =&amp;gt; { const name = await getUsername({ getUser: () =&amp;gt; Promise.</description>
     </item>
     
     <item>
       <title>Создание параметризированных строк</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-06-05-template-config/</link>
+      <link>https://tyulenit.com/posts/2023-06-05-template-config/</link>
       <pubDate>Sun, 04 Jun 2023 23:04:41 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-06-05-template-config/</guid>
+      <guid>https://tyulenit.com/posts/2023-06-05-template-config/</guid>
       <description>Задача, которая встречается почти в каждом проекте - это создание параметризированных строк. Чаще всего подобные конструкции можно встретить роутерах, но применение можно найти во многих других местах. Обычно это выглядит примерно так:
 const postURL = template(&amp;#39;{host}/posts/{id}&amp;#39;); const url = postURL({ host: &amp;#39;http://example.com&amp;#39;, id: 1 }); // url === &amp;#39;http://example.com/posts/id&amp;#39; Реализовать подобное API не представляет большой сложности. Разбиваем строку с помощью регулярного выражения, подставляя реальные значения вместо переменных.
 // создаем regexp для разбиения const buildSeparatorVarRx = (start: string, end: string) =&amp;gt; new RegExp(`${start}([^${start + end}]+)${end}`); // в качестве разделителя используем скобки const rx = buildSeparatorVarRx(&amp;#39;\\{&amp;#39;, &amp;#39;\\}&amp;#39;); export function template&amp;lt;T extends string&amp;gt;(tmpl: T) { const array = tmpl.</description>
@@ -35,49 +35,49 @@ const postURL = template(&amp;#39;{host}/posts/{id}&amp;#39;); const url = postU
     
     <item>
       <title>DI в typescript в стиле Java</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-31-injector/</link>
+      <link>https://tyulenit.com/posts/2023-05-31-injector/</link>
       <pubDate>Wed, 31 May 2023 12:55:03 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-31-injector/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-31-injector/</guid>
       <description>На работе в проекте столкнулись с достаточно распространенной архитектурной проблемой. Есть набор сервисов, зависящих друг от друга. Первоначально взаимосвязи между сервисами описывались c помощью DI через конструктор.
 interface Options { service1: Service1; service2: Service2; serviceN: ServiceN; } class ServiceNew { constructor(private options: Options) {} } В большинстве случаев такой подход является достаточно эффективным. Однако порой возникают ситуации, например, когда 2 сервиса зависят друг от друга и приходится инжектить зависимость через функции-геттеры.</description>
     </item>
     
     <item>
       <title>Асинхронные операции в mobx</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-25-promisedmodel/</link>
+      <link>https://tyulenit.com/posts/2023-05-25-promisedmodel/</link>
       <pubDate>Thu, 25 May 2023 12:54:11 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-25-promisedmodel/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-25-promisedmodel/</guid>
       <description>Продолжаем нашу серию заметок: &amp;ldquo;Готовим mobx в обход документации&amp;rdquo;. В прошлый раз мы реализовали примитив Subscriber. Он очень полезный, но не у каждого в проекте есть вебсокеты или подобные генераторы данных. Что есть у каждого, так это REST API. Работа с асинхронными операциями в документации, хоть и описана, но с архитектурной стороны вызывает одни подозрения и много boilerplate кода. Есть пакет mobx-utils, который содержит метод fromPromise, но очень непредсказуемо, если обратиться к нему вне реактивного контекста и то можно получить тонну запросов на сервер.</description>
     </item>
     
     <item>
       <title>Паттерн подписчик в mobx</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-22-subscriber/</link>
+      <link>https://tyulenit.com/posts/2023-05-22-subscriber/</link>
       <pubDate>Mon, 22 May 2023 12:53:38 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-22-subscriber/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-22-subscriber/</guid>
       <description>В прошлый раз я писал про createAtomSubscriber и рассказывал про его чрезвычайную полезность. Предлагаю написать примитив Subscriber для реактивной подписки/отписки/переподписки на источники данных. Начнем с примера использования подобной конструкции.
 Представим, что у нас есть функция receiveData, которая генерирует данные, после передачи ей текстового id и реактивная переменную $id. С помощью Subscriber создадим реактивную подписку. Когда getId будет возвращать значение отличное от undefined и subscriber.data будет под наблюдением - у нас запустится receiveData и, с помощью push, мы будет сохранять последнее полученное значение.</description>
     </item>
     
     <item>
       <title>Работа с atom в mobx</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-18-createatom/</link>
+      <link>https://tyulenit.com/posts/2023-05-18-createatom/</link>
       <pubDate>Thu, 18 May 2023 12:52:56 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-18-createatom/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-18-createatom/</guid>
       <description>В библиотеке mobx есть очень интересный примитив атом, который создается через createAtom. С его помощью можно создавать очень интересные конструкции и вообще построить чуть ли не всю архитектуру приложения. Что нам говорит документация:
 `createAtom` {🚀} Usage: `createAtom(name, onBecomeObserved?, onBecomeUnobserved?)` Creates your own observable data structure and hooks it up to MobX. Used internally by all observable data types. Atom exposes two `report` methods to notify MobX with when: - `reportObserved()`: the atom has become observed, and should be considered part of the dependency tree of the current derivation.</description>
     </item>
     
     <item>
       <title>Асинхронная пагинация</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-17-async-paginator/</link>
+      <link>https://tyulenit.com/posts/2023-05-17-async-paginator/</link>
       <pubDate>Wed, 17 May 2023 12:51:37 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-17-async-paginator/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-17-async-paginator/</guid>
       <description>Сегодня хочется немного рассказать про собственную наработку https://github.com/lexich/async-paginator
 Это небольшая библиотека, которая позволяет обрабатывать коллекции данных, используя асинхронные итераторы. При этом доступна гибкая настройка количества одновременного запуска задач (можно запустить сразу все или разбить на группы).
 import { paginatorUnordered, paginator } from &amp;#39;async-paginator&amp;#39;; const sleep = (delay: number) =&amp;gt; new Promise&amp;lt;void&amp;gt;((resolve) =&amp;gt; setTimeout(resolve, delay)); // for ordering use `paginator` instead of paginatorUnordered const paginate = paginatorUnordered([1, 2, 3, 4, 5, 6, 7, 8], async (num) =&amp;gt; { if (num % 2 === 0) { await sleep(10); // timeout 10ms } return num * 10; }, { offset: 1, chunks: 2, mode: &amp;#39;chunks&amp;#39;, }); const result: number[] = []; for await (const item of paginate) { if (!</description>
@@ -85,10 +85,10 @@ import { paginatorUnordered, paginator } from &amp;#39;async-paginator&amp;#39;;
     
     <item>
       <title>Брендированные типы в typescript</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-15-branding-types/</link>
+      <link>https://tyulenit.com/posts/2023-05-15-branding-types/</link>
       <pubDate>Mon, 15 May 2023 12:50:29 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-15-branding-types/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-15-branding-types/</guid>
       <description>Cегодня хочется поговорить о брендированных типах в typescript. Для начала, представим, что у нас есть функция для конвертации валют.
 const usdToEur = (usdAmount: number, rate = 0.92) =&amp;gt; usdAmount * rate; usdToEur(100); // === 92 eur Давайте немного улучшим ее, введя типы USD и EUR, чтобы не только название функции и коментарии к ней подсказывали нам о ее предназначении.
 type USD = number; type EUR = number; const usdToEur = (usdAmount: USD, rate = 0.</description>
@@ -96,20 +96,20 @@ type USD = number; type EUR = number; const usdToEur = (usdAmount: USD, rate = 0
     
     <item>
       <title>Миграция в React c Context API в Mobx часть 2</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-12-migration-reason/</link>
+      <link>https://tyulenit.com/posts/2023-05-12-migration-reason/</link>
       <pubDate>Fri, 12 May 2023 12:49:23 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-12-migration-reason/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-12-migration-reason/</guid>
       <description>В продолжение вчерашней темы, про миграцию на mobx резонно возникает вопрос, а зачем вообще мигрировать на что-то, если есть redux, context api, useReducer и всякие подобные решения на которых строится сейчас React разработка.
 export const AppContext = createContext({}); export const AppContextProvider: FC = ({ children }) =&amp;gt; { const [user, setUser] = useState&amp;lt;IUser&amp;gt;(undefined); const [profile, setProfile] = useState&amp;lt;IProfile&amp;gt;(undefined); const setUserId = (id: string) =&amp;gt; loadUser(id).then(setUser); useEffect(() =&amp;gt; { if (user) { loadProfile(user).</description>
     </item>
     
     <item>
       <title>Миграция в React c Context API в Mobx часть 1</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-11-contextapimigration/</link>
+      <link>https://tyulenit.com/posts/2023-05-11-contextapimigration/</link>
       <pubDate>Thu, 11 May 2023 12:47:31 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-11-contextapimigration/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-11-contextapimigration/</guid>
       <description>В жизни можно бесконечно делать 3 вещи, смотреть как горит огонь, как течет вода и как я пытаюсь агитировать переписать react приложение с Context API на что-то более функциональное, на чем можно построить нормальную архитектуру приложения. Последнее время я все чаще выбираю mobx, поэтому поговорим сегодня про него.
 Так что же делать, если приложение уже написано, а с чего-то начать надо?
 Предположим, у нас есть компонент, который обращается к глобальному стейту приложения.</description>
@@ -117,10 +117,10 @@ export const AppContext = createContext({}); export const AppContextProvider: FC
     
     <item>
       <title>Вставка отсортированных данных в JS</title>
-      <link>https://lexich.github.io/tyulenit/posts/2023-05-10-pushsortable/</link>
+      <link>https://tyulenit.com/posts/2023-05-10-pushsortable/</link>
       <pubDate>Wed, 10 May 2023 12:44:41 +0400</pubDate>
       
-      <guid>https://lexich.github.io/tyulenit/posts/2023-05-10-pushsortable/</guid>
+      <guid>https://tyulenit.com/posts/2023-05-10-pushsortable/</guid>
       <description>Когда я лет 10 назад писал на C++, то помню, как использовал структуру std:set чтобы сразу упорядоченно вставлять данные в массив. В JavaScript похожий Set завезли, но к сожалению компаратор в него не вставить. Придется засучить рукава и писать все самому.
 export function pushSortable&amp;lt;T&amp;gt;( list: T[], item: T, comparator: (a: T, b: T) =&amp;gt; -1 | 0 | 1 ) { // находим позицию первого элемента который больше вставляемого const index = list.</description>
     </item>
