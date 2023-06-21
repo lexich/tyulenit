@@ -34,7 +34,7 @@ jobs:
 
       - name: Write CNAME
         run: |
-          echo tuylenit.com > ./public/CNAME
+          echo tyulenit.com > ./public/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
