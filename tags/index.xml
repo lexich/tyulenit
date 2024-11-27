@@ -9,53 +9,44 @@
       <url>https://tyulenit.com/seal.jpg</url>
       <link>https://tyulenit.com/seal.jpg</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ru</language>
-    <lastBuildDate>Tue, 27 Jun 2023 12:01:26 +0400</lastBuildDate><atom:link href="https://tyulenit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.0</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Jun 2023 12:01:26 +0400</lastBuildDate>
+    <atom:link href="https://tyulenit.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>typescript</title>
+      <title>Typescript</title>
       <link>https://tyulenit.com/tags/typescript/</link>
       <pubDate>Tue, 27 Jun 2023 12:01:26 +0400</pubDate>
-      
       <guid>https://tyulenit.com/tags/typescript/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>architecture</title>
+      <title>Architecture</title>
       <link>https://tyulenit.com/tags/architecture/</link>
       <pubDate>Mon, 19 Jun 2023 11:06:32 +0400</pubDate>
-      
       <guid>https://tyulenit.com/tags/architecture/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mobx</title>
+      <title>Mobx</title>
       <link>https://tyulenit.com/tags/mobx/</link>
       <pubDate>Thu, 25 May 2023 12:54:11 +0400</pubDate>
-      
       <guid>https://tyulenit.com/tags/mobx/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>library</title>
+      <title>Library</title>
       <link>https://tyulenit.com/tags/library/</link>
       <pubDate>Wed, 17 May 2023 12:51:37 +0400</pubDate>
-      
       <guid>https://tyulenit.com/tags/library/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>algoritms</title>
+      <title>Algoritms</title>
       <link>https://tyulenit.com/tags/algoritms/</link>
       <pubDate>Wed, 10 May 2023 12:44:41 +0400</pubDate>
-      
       <guid>https://tyulenit.com/tags/algoritms/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

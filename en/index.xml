@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ens on ТюленITь</title>
+    <link>https://tyulenit.com/en/</link>
+    <description>Recent content in Ens on ТюленITь</description>
+    <image>
+      <title>ТюленITь</title>
+      <url>https://tyulenit.com/seal.jpg</url>
+      <link>https://tyulenit.com/seal.jpg</link>
+    </image>
+    <generator>Hugo -- 0.139.0</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Jun 2023 12:01:26 +0400</lastBuildDate>
+    <atom:link href="https://tyulenit.com/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>using in the upcoming typescript 5.2</title>
+      <link>https://tyulenit.com/en/posts/2023-06-27-using/</link>
+      <pubDate>Tue, 27 Jun 2023 12:01:26 +0400</pubDate>
+      <guid>https://tyulenit.com/en/posts/2023-06-27-using/</guid>
+      <description>&lt;p&gt;In the upcoming TypeScript 5.2, it&amp;rsquo;s planed to add a very interesting and useful feature called &lt;code&gt;using&lt;/code&gt;. Similar functionality already exists in other languages: in C# it&amp;rsquo;s &lt;code&gt;using&lt;/code&gt;, and in Go it&amp;rsquo;s &lt;code&gt;defer&lt;/code&gt;. The main idea is that using allows you to automatically release a resource (by calling a special method for this) after it exits the scope of the block. For example, if we have a method getResource that has implemented the method &lt;code&gt;[Symbol.dispose]()&lt;/code&gt;, then we can write the following code and the &lt;code&gt;Symbol.dispose&lt;/code&gt; method will be executed automatically at the end of the main function, as if this construct were wrapped in a &lt;code&gt;try finally&lt;/code&gt; block.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
