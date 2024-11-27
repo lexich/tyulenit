@@ -1,7 +1,7 @@
 baseURL: 'https://tyulenit.com'
 title: 'ТюленITь'
-languageCode: ru
-defaultContentLanguage: ru
+languageCode: en
+defaultContentLanguage: en
 theme: papermod
 paginate: 5
 
@@ -19,15 +19,40 @@ minify:
 taxonomies:
   tag: tags
 
+language:
+  ru:
+    contentDir: content/ru
+    disabled: false
+    languageCode: ru
+    languageDirection: ltr
+    languageName: Russian
+    params:
+      homeInfoParams:
+
+      description: 'Нить рассуждений о технологиях, разработке программного обеспечения и о тюленчиках'
+    title: 'ТюленITь'
+    weight: 1
+  en:
+    contentDir: content/en
+    disabled: false
+    languageCode: en
+    languageDirection: ltr
+    languageName: English
+    params:
+      subtitle: Tyulenit
+      description: 'A thread of thoughts about technologies, software development, and seals.'
+    title: Tyulenit
+    weight: 2
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: 'ТюленITь'
-  description: "Нить рассуждений о технологиях, разработке программного обеспечения и о тюленчиках"
+  # title: 'ТюленITь'
+  # description: 'Нить рассуждений о технологиях, разработке программного обеспечения и о тюленчиках'
   keywords: [Blog, IT]
   author: lexich
   # author: ["Me", "You"] # multiple authors
   images: [seal.jpg]
-  DateFormat: "January 2, 2006"
+  DateFormat: 'January 2, 2006'
   defaultTheme: light # dark, light, auto
   disableThemeToggle: false
 
@@ -50,14 +75,14 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "favicon.ico"
-    favicon16x16: "favicon-16x16.png"
-    favicon32x32: "favicon-32x32.png"
-    apple_touch_icon: "apple-touch-icon.png"
-    safari_pinned_tab: "apple-touch-icon.png"
+    favicon: 'favicon.ico'
+    favicon16x16: 'favicon-16x16.png'
+    favicon32x32: 'favicon-32x32.png'
+    apple_touch_icon: 'apple-touch-icon.png'
+    safari_pinned_tab: 'apple-touch-icon.png'
 
   label:
-    text: "ТюленITь"
+    text: 'ТюленITь'
     icon: apple-touch-icon.png
     iconHeight: 35
 
@@ -65,11 +90,11 @@ params:
   profileMode:
     enabled: false # needs to be explicitly set
     title: 'ТюленITь'
-    subtitle: "Нить рассуждений о технологиях, разработке программного обеспечения и о тюленчиках"
-    imageUrl: "seal.jpg"
+    subtitle: 'Нить рассуждений о технологиях, разработке программного обеспечения и о тюленчиках'
+    imageUrl: 'seal.jpg'
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my image
+    imageTitle: Seal
     buttons:
       - name: Posts
         url: posts
@@ -83,15 +108,15 @@ params:
 
   socialIcons:
     - name: telegram
-      url: "https://t.me/tyulenit"
+      url: 'https://t.me/tyulenit'
     - name: twitter
-      url: "https://twitter.com/lexich"
+      url: 'https://twitter.com/lexich'
     - name: github
-      url: "https://github.com/lexich"
+      url: 'https://github.com/lexich'
 
   analytics:
     google:
-      SiteVerificationTag: "G-00G3WYG3BJ"
+      SiteVerificationTag: 'G-00G3WYG3BJ'
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -99,8 +124,8 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/lexich/tyulenit/blob/master/content"
-    Text: "Поправить" # edit text
+    URL: 'https://github.com/lexich/tyulenit/blob/master/content'
+    # Text: 'Поправить' # edit text
     appendFilePath: true # to append file path to Edit link
 
   # for search
@@ -112,7 +137,7 @@ params:
     distance: 1000
     threshold: 0.4
     minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+    keys: ['title', 'permalink', 'summary', 'content']
 menu:
   main:
     - identifier: tags
