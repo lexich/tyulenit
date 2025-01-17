@@ -1,3 +1,5 @@
+
 User-agent: *
-Disallow:
-Sitemap: https://tyulenit.com/sitemap.xml
+Allow: /
+
+Sitemap: https://tyulenit.com/sitemap-index.xml
