@@ -115,7 +115,7 @@ class TestModel extends ReactModel<{ value: number }> {
   constructor() {
     super();
     makeObservable(this, {
-      value: computed,
+      double: computed,
     });
   }
 
