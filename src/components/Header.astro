@@ -2,16 +2,20 @@
 import HeaderLink from './HeaderLink.astro';
 import { useI18n } from '../i18n/utils';
 
-const { t, links } = useI18n(Astro.url);
+const { t, links, lang } = useI18n(Astro.url);
 ---
 
 <header>
   <nav>
     <h2>
       <a class="home_link" href=`${links.blog}`
-        ><img class="logo" src="/seal.jpg" alt={t('title')} width="40" height="40" />{
-          t('title')
-        }</a
+        ><img
+          class="logo"
+          src="/seal.jpg"
+          alt={t('title')}
+          width="40"
+          height="40"
+        />{t('title')}</a
       >
     </h2>
     <div class="internal-links" style="display: none;">
@@ -21,6 +25,15 @@ const { t, links } = useI18n(Astro.url);
       {t('description')}
     </div>
     <div class="social-links">
+      <a
+        href={Astro.url.pathname.replace(
+          new RegExp(`/${lang}/`),
+          lang === 'ru' ? '/en/' : '/ru/'
+        )}
+      >
+        {lang === 'ru' ? 'EN' : 'RU'}
+      </a>
+
       <a href="https://t.me/tyulenit" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"

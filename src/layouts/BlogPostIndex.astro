@@ -14,6 +14,13 @@ const { posts } = Astro.props;
       main {
         width: 960px;
       }
+      a > img {
+        opacity: 0.8;
+      }
+      a:hover > img {
+        opacity: 1;
+      }
+
       ul {
         display: flex;
         flex-wrap: wrap;
@@ -61,7 +68,7 @@ const { posts } = Astro.props;
         font-weight: bold;
       }
       .tag:hover {
-        text-shadow: var(--box-shadow);;
+        text-shadow: var(--box-shadow);
       }
       ul li a:hover h4,
       ul li a:hover .date {

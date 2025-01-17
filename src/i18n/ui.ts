@@ -29,7 +29,7 @@ export const ui = {
   }),
 } satisfies Record<TLangs, unknown>;
 
-export const defaultLang: TLangs = 'ru';
+export const defaultLang: TLangs = 'en';
 
 const defineConst = <const T extends Record<TLangs, string>>(t: T) => t;
 
