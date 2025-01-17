@@ -1,0 +1,98 @@
+---
+import Layout from './Layout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { useI18n, type TPost } from '../i18n';
+
+type Props = {
+  post: TPost;
+};
+
+const { t, lang, links } = useI18n(Astro.url);
+const {
+  page: {
+    data: { title, description, date, updatedDate, heroImage, tags },
+  },
+} = Astro.props.post;
+---
+
+<Layout title={title} description={description ?? ''} lang={lang}>
+  <Fragment slot="head">
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+      .hero-image {
+        width: 100%;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+        max-height: 300px;
+        content:;
+      }
+      .prose {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+    </style>
+  </Fragment>
+
+  <main>
+    <article>
+      <div class="hero-image">
+        <img src={heroImage || '/blog-placeholder-about.jpg'} alt="" />
+      </div>
+      <div class="prose">
+        <div class="title">
+          <div class="date">
+            <FormattedDate date={date} />
+            {
+              updatedDate && (
+                <div class="last-updated-on">
+                  {t('date.lastUpdate')}
+                  <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </div>
+          <h1>{title}</h1>
+
+          <p>
+            Tags: {
+              tags.map((tag, index) => (
+                <Fragment key={tag}>
+                  {index > 0 && ', '}
+                  <a href={links.tag(tag)}>{tag}</a>
+                </Fragment>
+              ))
+            }
+          </p>
+        </div>
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>

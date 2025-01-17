@@ -1,0 +1,10 @@
+---
+import { LANGS } from '../../i18n';
+
+export async function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+---
+
+<!-- redirects -->
+<meta http-equiv="refresh" content={`0; url=/${Astro.params.lang}/blog`} />

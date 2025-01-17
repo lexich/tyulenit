@@ -1,0 +1,120 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { useI18n } from '../i18n/utils';
+
+const { t, links } = useI18n(Astro.url);
+---
+
+<header>
+  <nav>
+    <h2>
+      <a class="home_link" href=`${links.blog}`
+        ><img class="logo" src="/seal.jpg" alt={t('title')} width="40" height="40" />{
+          t('title')
+        }</a
+      >
+    </h2>
+    <div class="internal-links" style="display: none;">
+      <HeaderLink href=`${links.blog}`>{t('nav.blog')}</HeaderLink>
+    </div>
+    <div class="description">
+      {t('description')}
+    </div>
+    <div class="social-links">
+      <a href="https://t.me/tyulenit" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 333334 333334"
+          shape-rendering="geometricPrecision"
+          text-rendering="geometricPrecision"
+          image-rendering="optimizeQuality"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          aria-hidden="true"
+          width="32"
+          height="32"
+          ><path
+            d="M166667 0c92048 0 166667 74619 166667 166667s-74619 166667-166667 166667S0 258715 0 166667 74619 0 166667 0zm80219 91205l-29735 149919s-4158 10396-15594 5404l-68410-53854s76104-68409 79222-71320c3119-2911 2079-3534 2079-3534 207-3535-5614 0-5614 0l-100846 64043-42002-14140s-6446-2288-7069-7277c-624-4992 7277-7694 7277-7694l166970-65498s13722-6030 13722 3951zm-87637 122889l-27141 24745s-2122 1609-4443 601l5197-45965 26387 20619z"
+          ></path></svg
+        >
+      </a>
+
+      <a href="https://x.com/lexich" target="_blank">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32"
+          ><g
+            ><path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+            ></path></g
+          ></svg
+        >
+      </a>
+
+      <a href="https://github.com/lexich/tyulenit" target="_blank">
+        <span class="sr-only">{t('social.github')}</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
+          ><path
+            fill="currentColor"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+          ></path></svg
+        >
+      </a>
+    </div>
+  </nav>
+</header>
+<style>
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background: white;
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+  }
+
+  h2 a.home_link {
+    position: relative;
+    padding-left: 50px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+  }
+  .description {
+    text-align: center;
+    font-size: 0.6em;
+  }
+</style>

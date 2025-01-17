@@ -1,0 +1,137 @@
+---
+import Layout from './Layout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { useI18n, type TPost } from '../i18n';
+
+type Props = { posts: TPost[] };
+const { t, lang, links } = useI18n(Astro.url);
+const { posts } = Astro.props;
+---
+
+<Layout title={t('title')} description={t('description')} lang={lang}>
+  <Fragment slot="head">
+    <style>
+      main {
+        width: 960px;
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        width: calc(50% - 1rem);
+      }
+      ul li * {
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      ul li:first-child {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      ul li:first-child .title {
+        font-size: 2.369rem;
+      }
+      ul li img {
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+      }
+      ul li a {
+        display: block;
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        line-height: 1;
+      }
+      .date {
+        margin: 0;
+        color: rgb(var(--gray));
+      }
+      .date a {
+        float: left;
+        margin-right: 10px;
+      }
+      .tag {
+        font-weight: bold;
+      }
+      .tag:hover {
+        text-shadow: var(--box-shadow);;
+      }
+      ul li a:hover h4,
+      ul li a:hover .date {
+        color: rgb(var(--accent));
+      }
+      ul a:hover img {
+        box-shadow: var(--box-shadow);
+      }
+      @media (max-width: 720px) {
+        ul {
+          gap: 0.5em;
+        }
+        ul li {
+          width: 100%;
+          text-align: center;
+        }
+        ul li:first-child {
+          margin-bottom: 0;
+        }
+        ul li:first-child .title {
+          font-size: 1.563em;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <main>
+    <slot />
+    <section>
+      <ul>
+        {
+          posts.map(
+            (
+              {
+                page: {
+                  data: { heroImage, title, date, tags },
+                },
+                url,
+              },
+              i
+            ) => (
+              <li>
+                <a href={url}>
+                  <img
+                    width={i ? 720 : '70%'}
+                    height={i ? 360 : undefined}
+                    src={heroImage || '/blog-placeholder-about.jpg'}
+                    alt=""
+                  />
+                  <h4 class="title">{title}</h4>
+                  <p class="date">
+                    <FormattedDate date={date} />
+
+                    {tags.length
+                      ? tags.map((tag, index) => (
+                          <Fragment key={tag}>
+                            {index > 0 && ', '}
+                            <a class="tag" href={links.tag(tag)}>
+                              #{tag}
+                            </a>
+                          </Fragment>
+                        ))
+                      : null}
+                  </p>
+                </a>
+              </li>
+            )
+          )
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>

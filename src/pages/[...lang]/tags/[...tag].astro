@@ -1,0 +1,57 @@
+---
+import { getPosts, type TPost, type TLangs } from '../../../i18n';
+import BlogPostIndex from '../../../layouts/BlogPostIndex.astro';
+
+export async function getStaticPaths() {
+  const mapPosts = await getPosts();
+
+  const shape = Object.entries(mapPosts).reduce(
+    (memo, [l, posts]) => {
+      const lang = l as TLangs;
+      const ref = memo[lang] || (memo[lang] = {});
+
+      posts.forEach((post: TPost) => {
+        post.page.data.tags.forEach((tag) => {
+          const list = ref[tag] || (ref[tag] = []);
+          list.push(post);
+        });
+      });
+
+      return memo;
+    },
+    {} as Record<TLangs, Record<string, TPost[]>>
+  );
+
+  const result: Array<{
+    props: Props;
+    params: { lang: string; tag: string };
+  }> = [];
+
+  Object.entries(shape).forEach(([lang, tags]) => {
+    Object.entries(tags).forEach(([tag, posts]) => {
+      result.push({
+        params: { lang, tag },
+        props: { posts },
+      });
+    });
+  });
+
+  return result;
+}
+
+type Props = {
+  posts: TPost[];
+};
+
+const { posts } = Astro.props;
+---
+
+<style>
+  .center {
+    text-align: center;
+  }
+</style>
+
+<BlogPostIndex posts={posts}>
+  <p class="center">Tag: {Astro.params.tag}</p>
+</BlogPostIndex>

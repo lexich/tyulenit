@@ -1,0 +1,41 @@
+---
+import { render } from 'astro:content';
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getPosts, type TPost } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+
+  return Object.entries(posts).reduce(
+    (memo, [lang, posts]) => {
+      posts.forEach((post) => {
+        memo.push({
+          props: { post },
+          params: { lang, slug: post.slug },
+        });
+      });
+
+      return memo;
+    },
+    [] as Array<{
+      params: {
+        lang: string;
+        slug: string;
+      };
+      props: {
+        post: TPost;
+      };
+    }>
+  );
+}
+type Props = {
+  post: TPost;
+};
+
+const { post } = Astro.props;
+const { Content } = await render(post.page);
+---
+
+<BlogPost post={post}>
+  <Content />
+</BlogPost>

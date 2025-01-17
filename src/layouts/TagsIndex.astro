@@ -1,0 +1,52 @@
+---
+import { useI18n } from '../i18n';
+import Layout from './Layout.astro';
+type Props = {
+  tags: string[];
+};
+
+const { links, lang, t } = useI18n(Astro.url);
+const { tags } = Astro.props;
+---
+
+<Layout description={t('description.tags')} title={t('title')} lang={lang}>
+  <Fragment slot="head">
+    <style>
+      main {
+        width: 960px;
+        padding: 2em;
+        min-height: 50vh;
+      }
+      .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #333;
+      }
+      .tag:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+  </Fragment>
+
+  <main>
+    <section>
+      <div class="tag-cloud">
+        {
+          tags.map((tag) => (
+            <a href={links.tag(tag)} class="tag">
+              {tag}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

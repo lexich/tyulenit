@@ -1,0 +1,32 @@
+---
+import TagsIndex from '../../../layouts/TagsIndex.astro';
+import { getPosts, type TPost } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const mapPosts = await getPosts();
+
+  return Object.entries(mapPosts).map(([lang, posts]) => {
+    const tags = new Set<string>();
+
+    posts.forEach((post: TPost) => {
+      post.page.data.tags.forEach((tag) => {
+        tags.add(tag);
+      });
+    });
+
+    return {
+      params: { lang },
+      props: {
+        tags: [...tags],
+      },
+    };
+  });
+}
+
+type Props = {
+  tags: string[];
+};
+const { tags } = Astro.props;
+---
+
+<TagsIndex tags={tags} />

@@ -1,0 +1,28 @@
+---
+import BlogPostIndex from '../../../layouts/BlogPostIndex.astro';
+import { getPosts, type TPost } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+
+  const result = Object.entries(posts).map(([lang, posts]) => {
+    return {
+      params: {
+        lang,
+      },
+      props: {
+        posts,
+      },
+    };
+  });
+
+  return result;
+}
+
+type Props = {
+  posts: TPost[];
+};
+const { posts } = Astro.props;
+---
+
+<BlogPostIndex posts={posts} />
