@@ -71,7 +71,9 @@ export function useReactModel<T extends ReactModel<Record<string, unknown>>>(
   if (!ref.current) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ref.current = observable.map(params as any, { deep: false });
-  } else {
+  }
+
+  useEffect(() => {
     const $ref = ref.current;
     runInAction(() => {
       Object.entries(params).forEach(([k, v]) => {
@@ -81,7 +83,7 @@ export function useReactModel<T extends ReactModel<Record<string, unknown>>>(
         }
       });
     });
-  }
+  }, [params]);
 
   const model = useMemo(() => {
     const inst = new TModel();
@@ -99,7 +101,7 @@ function cmpReactModelDefault(_: string, a: unknown, b: unknown) {
 }
 ```
 
-This hook needs to be passed a model class, as well as `react props` from the component. With this approach, we create a model whose life cycle is tied to the component (the model is created once). All `react props` are updated synchronously. And we have reactivity due to the fact that we use `mobx.observable.map` to store parameters.
+This hook needs to be passed a model class, as well as `react props` from the component. With this approach, we create a model whose life cycle is tied to the component (the model is created once). We have reactivity due to the fact that we use `mobx.observable.map` to store parameters. Unfortunately, `useEffect` generate extra re-renders for each `react props` updates.
 
 The `cmp` method allows you to write custom logic to compare changed `react props`.
 

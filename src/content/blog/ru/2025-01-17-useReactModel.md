@@ -71,7 +71,9 @@ export function useReactModel<T extends ReactModel<Record<string, unknown>>>(
   if (!ref.current) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ref.current = observable.map(params as any, { deep: false });
-  } else {
+  }
+
+  useEffect(() => {
     const $ref = ref.current;
     runInAction(() => {
       Object.entries(params).forEach(([k, v]) => {
@@ -81,7 +83,7 @@ export function useReactModel<T extends ReactModel<Record<string, unknown>>>(
         }
       });
     });
-  }
+  }, [params]);
 
   const model = useMemo(() => {
     const inst = new TModel();
@@ -99,7 +101,7 @@ function cmpReactModelDefault(_: string, a: unknown, b: unknown) {
 }
 ```
 
-В этот хук нужно передать класс модели, а также `react props` из компонента. С помощью такого подхода мы создаем модель, жизненный цикл которой привязан к компоненту (модель создается один раз). Все `react props` обновляются синхронно. И нам доступна реактивность за счет того, что мы для хранения параметров используем `mobx.observable.map`.
+В этот хук нужно передать класс модели, а также `react props` из компонента. С помощью такого подхода мы создаем модель, жизненный цикл которой привязан к компоненту (модель создается один раз). И нам доступна реактивность за счет того, что мы для хранения параметров используем `mobx.observable.map`. К сожалению использование `useEffect` приводит к тому, что каждое изменение `react-props` будет инициировать повторный ререндер.
 
 Метод `cmp` позволяет написать кастомную логику для сравнения измененных `react props`.
 
@@ -130,4 +132,3 @@ const Component = observer<{ value: number }>(({ value }) => {
   return <button type="button">{model.double}</button>;
 });
 ```
-
