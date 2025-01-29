@@ -52,7 +52,9 @@ Tags: <a href="/en/tags/mobx" data-astro-cid-bvzihdzo>mobx</a> , <a href="/en/ta
 <span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">ref.current) {</span></span>
 <span class="line"><span style="color:#6A737D">    // eslint-disable-next-line @typescript-eslint/no-explicit-any</span></span>
 <span class="line"><span style="color:#E1E4E8">    ref.current </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> observable.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(params </span><span style="color:#F97583">as</span><span style="color:#79B8FF"> any</span><span style="color:#E1E4E8">, { deep: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> });</span></span>
-<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  useEffect</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> $ref</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> ref.current;</span></span>
 <span class="line"><span style="color:#B392F0">    runInAction</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">      Object.</span><span style="color:#B392F0">entries</span><span style="color:#E1E4E8">(params).</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(([</span><span style="color:#FFAB70">k</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">v</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
@@ -62,7 +64,7 @@ Tags: <a href="/en/tags/mobx" data-astro-cid-bvzihdzo>mobx</a> , <a href="/en/ta
 <span class="line"><span style="color:#E1E4E8">        }</span></span>
 <span class="line"><span style="color:#E1E4E8">      });</span></span>
 <span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }, [params]);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> model</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useMemo</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> inst</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> TModel</span><span style="color:#E1E4E8">();</span></span>
@@ -78,7 +80,7 @@ Tags: <a href="/en/tags/mobx" data-astro-cid-bvzihdzo>mobx</a> , <a href="/en/ta
 <span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> cmpReactModelDefault</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">_</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">a</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> unknown</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">b</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> unknown</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> comparer.</span><span style="color:#B392F0">identity</span><span style="color:#E1E4E8">(a, b);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
-<p>This hook needs to be passed a model class, as well as <code>react props</code> from the component. With this approach, we create a model whose life cycle is tied to the component (the model is created once). All <code>react props</code> are updated synchronously. And we have reactivity due to the fact that we use <code>mobx.observable.map</code> to store parameters.</p>
+<p>This hook needs to be passed a model class, as well as <code>react props</code> from the component. With this approach, we create a model whose life cycle is tied to the component (the model is created once). We have reactivity due to the fact that we use <code>mobx.observable.map</code> to store parameters. Unfortunately, <code>useEffect</code> generate extra re-renders for each <code>react props</code> updates.</p>
 <p>The <code>cmp</code> method allows you to write custom logic to compare changed <code>react props</code>.</p>
 <p>The final component will take the following form:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> React </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
